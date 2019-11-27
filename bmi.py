@@ -15,16 +15,16 @@ class (成人の)BMI:
 # クラス名はUpperCamelCaseが普通
 class BMI():
     def __init__(self, height, weight):
-        self.height = height
-        self.weight = weight
-    def calculate_bmi(self):
-        return self.weight / (self.height ** 2)
+        self.value = weight / (height ** 2)
+        if not (10 <= self.value <= 40):
+            raise ValueError('BMIが正常値の範囲外です。')
+    def __str__(self):
+        return f'{self.value:.2f}'
 
 
 
 hibiki_bmi = BMI(height=1.75, weight=58.2)
-noriya_bmi = BMI(height=1.68, weght=67.3)
+noriya_bmi = BMI(height=1.68, weight=67.3)
 print('Hibiki')
-print(hibiki_bmi.height)
-print(hibiki_bmi.calculate_bmi())
+print(hibiki_bmi)
 
